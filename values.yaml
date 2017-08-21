@@ -1,0 +1,15 @@
+activemq:
+  image: neunnsy/activemq-metrics
+  pullPolicy: IfNotPresent
+
+namespace: default
+
+serviceType: NodePort
+
+replicas: 3
+
+metrics:
+  enabled: flase
+  annotations: 
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "9000"

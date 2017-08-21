@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "fullname" . }}
+  namespace: {{ .Values.namespace }}
+{{- if .Values.metrics.enabled }}
+  annotations:
+{{ toYaml .Values.metrics.annotations | indent 4 }}
+{{- end }}
+spec:
+  ports:
+    - name: activemq
+      port: 61616
+      targetPort: 61616
+  {{- if .Values.metrics.enabled }}
+    - name: metrics 
+      port: 9000
+      targetPort: 9000
+  {{- end }}
+  selector:
+    app: {{ template "fullname" . }}

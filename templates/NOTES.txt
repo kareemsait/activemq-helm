@@ -1,0 +1,10 @@
+
+**  Activemq 集群 将会在几分钟之内进入可用状态. 请耐心等待. **
+
+* 查看集群状态请使用. *
+
+  echo kubectl get svc -n (你的namespace)
+
+  查看ui 服务端口, 通过url访问
+
+

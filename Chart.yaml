@@ -1,0 +1,8 @@
+description: Activemq cluster
+engine: gotpl
+icon: http://activemq.apache.org/images/activemq-logo.png
+maintainers:
+- email: tianh@neunn.com
+  name: Tianh
+name: activemq-cluster
+version: 1.0.0
