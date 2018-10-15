@@ -1,10 +1,8 @@
+** Activemq cluster will be available in a few minutes. Please be patient. **
 
-**  Activemq 集群 将会在几分钟之内进入可用状态. 请耐心等待. **
+* Please check the cluster status. *
 
-* 查看集群状态请使用. *
+  echo kubectl get svc -n (your namespace)
 
-  echo kubectl get svc -n (你的namespace)
-
-  查看ui 服务端口, 通过url访问
-
+  View the ui service port, accessed via url
 
