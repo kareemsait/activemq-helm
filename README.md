@@ -8,50 +8,53 @@
 $ helm install stable/activemq-cluster
 ```
 
-## 介绍
+## Introduction
 
-该应用模板会使用 [Helm](https://helm.sh) 包管理工具在 [Kubernetes](http://kubernetes.io) 上启动一个 [Activemq](http://activemq.apache.org/)  集群.
+The application template will launch an [Activemq](http://activemq.apache.org/) cluster on [Kubernetes](http://kubernetes.io) using the [Helm](https://helm.sh) package management tool .
 
-## 安装要求
+ 
+## Installation requirements
 
-- Kubernetes 1.4+ 支持 Beta APIs
-- 集群内部满足供给相应PV
+- Kubernetes 1.4+ and Beta APIs
+- The cluster internally meets the supply of corresponding PV
 
-## 安装应用
+## Install the app
 
-通过应用名来安装应用 `my-release`:
+Install the app by app name `my-release`:
 
 ```bash
 $ helm install --name my-release stable/activemq-cluster
 ```
 
-该命令会部署一个默认配置的RabbitMQ集群.  [configuration](#configuration) 配置目录列出了所有安装期间可使用的的参数.
+This command deploys a RabbitMQ cluster with a default configuration. The [configuration](#configuration) section lists all the parameters that can be used during installation..
 
-> **Tip**: 查看所有release请使用 helm list
+> **Tip**: See all releases, please use the command `helm list`
 
-## 卸载应用
+## Uninstall the app
 
-卸载/删除 `my-release` :
+Uninstall/delete `my-release` :
 
 ```bash
 $ helm delete my-release
 ```
 
-该命令会移除所有与之相关的Kubernetes组件,并删除release.
+This command removes all related Kubernetes components and removes the release.
 
-## 配置参数
+## Configuration parameter
 
-下面的表格列出了ActiveMQ可配置的参数和参数的默认值.
+The table below lists the default values for ActiveMQ configurable parameters and parameters.
+
+Parameter	
 
 |         Parameter          |                       Description                       |                         Default                          |
 |----------------------------|---------------------------------------------------------|----------------------------------------------------------|
 | `image.image`               |  cluster image                                  | `tianctrl/activemq`                             |   
-| `image.pullPolicy`               |  镜像拉取规则                                  | `IfNotPresent`                             |   
-| `metrics.enabled`               |  标量是否开启                                  | `false`                             |          
-| `replicas`                 |  replicas number                                | `3`      |      
+| `image.pullPolicy`               |  Mirror pull rule                                  | `IfNotPresent`                             |   
+| `metrics.enabled`               |  Whether the scalar is on                                  | `false`                             |          
+| `replicas`                 |  replicas number                                | `1`      |      
 
 
-使用 `--set key=value[,key=value]` 指定各个参数, 在 `helm install` 时使用. 例如,
+Use `--set key=value[,key=value]` to specify the parameters in `helm install` For Example,
 
 ```bash
 $ helm install --name my-release \
@@ -60,13 +63,13 @@ $ helm install --name my-release \
 ```
 
 
-或者, 可以在安装阶段使用文件来指定参数. 例如,
+Alternatively, you can use a file to specify parameters during the installation phase. For example,
 
 ```bash
 $ helm install --name my-release -f values.yaml stable/activemq-cluster
 ```
 
-JSON文件示例：
+JSON file example:
 
 ```
 {
